@@ -1,0 +1,93 @@
+// font awesome
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+// app primary colors
+$primary-bg: #f0f4f5;
+$primary-brown: #795548;
+$primary-grey: #363b4a;
+
+.trendingBlock {
+  display: flex;
+  height: 80vh;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+// movie cards
+.movieCard {
+  display: flex;
+  flex-direction: row;
+  margin: 50px;
+  max-width: 150px;
+  transition-duration: 1s;
+  transform-style: preserve-3d;
+  text-align: center;
+  color: #333;
+  &__front,
+  &__back {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__front {
+    backface-visibility: hidden;
+  }
+  &__back {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+  }
+  &:hover {
+    transform: rotateY(180deg);
+    cursor: pointer;
+  }
+}
+
+// Star ratings
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input {
+  display: none;
+}
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+  float: right;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ffd700;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #ffed85;
+}
